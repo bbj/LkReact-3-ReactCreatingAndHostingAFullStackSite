@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ArticlesList from './pages/ArticlesList';
 import ArticlePage from './pages/ArticlePage';
+import NavBar from './NavBar';
 import {
   Routes, Route
 } from 'react-router-dom';
@@ -10,6 +11,7 @@ import {
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <div id="page-body">
         <Routes>
           <Route path="/" element={<HomePage />} exact />
