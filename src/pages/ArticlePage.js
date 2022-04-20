@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import articleContent from './article-content';
 import ArticleList from '../components/ArticleList';
 import CommentsList from '../components/CommentsList';
+import UpvotesSection from '../components/UpvotesSection';
+import AddCommentForm from '../components/AddCommentForm';
 import NotFoundPage from "./NotFoundPage";
 
 const ArticlePage = () => {
@@ -29,11 +31,12 @@ const ArticlePage = () => {
   return (
     <>
       <h1>{article.title}</h1>
-      <p>This post has been upvoted {articleInfo.upvotes} times</p>
+      <UpvotesSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo} />
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
       <CommentsList comments={articleInfo.comments} />
+      <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
       <h3>Other Articles:</h3>
       <ArticleList articles={otherArticles} />
     </>
